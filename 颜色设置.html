@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>颜色设置</title>
+  <style>
+    #box1 {
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+  <div id="box1">
+    <canvas width="600px" height="500px"></canvas>
+  </div>
+</body>
+<script>
+  /*
+    1，filestyle 用来设置填充色，颜色值为字符串与css中的颜色值配置相同，也可以使用rgb和rgba
+    2，strokeStyle 用来设置描边颜色，颜色值为字符串与css中的颜色值配置相同，也可以使用rgb和rgba
+    3，globalAlpha 用来设置颜色的透明度， 值为0-1
+  */
+  let canvas = document.querySelector('canvas')
+  if(canvas.getContext){
+    let ctx = canvas.getContext('2d')
+    // 绘制一个填充矩形
+    ctx.fillStyle = 'skyblue'
+    ctx.globalAlpha = 0.5
+    ctx.fillRect(30,30,150,150)
+    // 绘制一个描边矩形
+    ctx.strokeStyle = 'red'
+    ctx.strokeRect(80, 80, 50, 50)
+    // 清除一个区域的矩形
+    ctx.clearRect(50, 50, 20, 20)
+  }
+</script>
+</html>

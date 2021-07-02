@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>绘制圆弧</title>
+  <style>
+    #box1 {
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+  <div id="box1">
+    <canvas width="600px" height="500px"></canvas>
+  </div>
+</body>
+<script>
+  /*
+   1, arc(x, y, radius, startAngle, endAngle, boolean)
+   2, 绘制圆弧主要有六个参数，x, y 使用来表示圆心坐标，radius表示圆的半径，startAngle和endAngle表示开始和结束是的弧度，boolean表示为顺时针还是逆时针渲染，false为顺时针，true为逆时针
+  */
+  let canvas = document.querySelector('canvas')
+  if(canvas.getContext){
+    let ctx = canvas.getContext('2d')
+    ctx.beginPath()
+    ctx.arc(300, 300, 50, 0, (Math.PI/180)*270, false)
+    ctx.closePath()
+    ctx.stroke()
+
+    ctx.beginPath()
+    ctx.arc(50, 50, 50, Math.PI/180*30, Math.PI/180*90, false)
+    ctx.closePath()
+    ctx.stroke()
+  }
+</script>
+</html>

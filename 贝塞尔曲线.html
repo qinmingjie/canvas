@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>贝塞尔曲线</title>
+  <style>
+    #box1 {
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+  <div id="box1">
+    <canvas width="600px" height="500px"></canvas>
+  </div>
+</body>
+<script>
+  /*
+    1, quqdraticCurveTo 为二次贝塞尔曲线，前两个参数为控制点，后两个参数是路径结束点
+    2, quqdraticCurveTo 为二次贝塞尔曲线，前两个参数为控制点，第三第四个参数为第二个控制点，后两个参数是路径结束点
+  */
+  let canvas = document.querySelector('canvas')
+  if(canvas.getContext){
+    let ctx = canvas.getContext('2d')
+    ctx.beginPath()
+    ctx.moveTo(300, 300)
+    ctx.quadraticCurveTo(500, 400, 600, 600)
+    ctx.stroke()
+    ctx.beginPath()
+    ctx.moveTo(100, 100)
+    ctx.bezierCurveTo(150, 100, 200, 100, 150, 150)
+    ctx.stroke()
+  }
+</script>
+</html>

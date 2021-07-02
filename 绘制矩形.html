@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>绘制矩形</title>
+  <style>
+    #box1 {
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+  <div id="box1">
+    <canvas width="600px" height="500px"></canvas>
+  </div>
+</body>
+<script>
+  /*
+    x, y代表矩形的起点坐标,在canvas中x轴是向下的 w, h代表矩形的宽度和高度
+    1, 绘制矩形主要有绘制实心矩形 fillRect(x, y, w, h)
+    2, 绘制描边矩形 strokeRect(x, y, w, h)
+    3, 擦除某一个矩形范围 clearRect(x, y, w, h)
+  */
+  let canvas = document.querySelector('canvas')
+  if(canvas.getContext){
+    let ctx = canvas.getContext('2d')
+    // 绘制一个填充矩形
+    ctx.fillStyle = 'rgba(0,0,0,0.1)'
+    ctx.fillRect(30,30,150,150)
+    // 绘制一个描边矩形
+    ctx.strokeRect(80, 80, 50, 50)
+    // 清除一个区域的矩形
+    ctx.clearRect(50, 50, 20, 20)
+  }
+</script>
+</html>

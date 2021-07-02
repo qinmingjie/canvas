@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>绘制路径</title>
+  <style>
+    #box1 {
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+  <div id="box1">
+    <canvas width="600px" height="500px"></canvas>
+  </div>
+</body>
+<script>
+  /*
+    1, 路径开始 beginPath()
+    2, moveTo(x, y) 表示路径的起点，也就是落笔的地方
+    3, lineTo(x, y)  表示路径的另一个点，也就是线段的结束点或者一条路径的拐点
+    4, closePath()  表示关闭路径，也就是说这条线段或者路径画完了，结束了
+    5, stroke()  对路径或线段进行描边，如果没有这个步骤是什么都没有的，只有点，他的作用就是链接两点成为线
+    6, fill()  用来对闭合的路径或者线段进行填充
+  */
+  let canvas = document.querySelector('canvas')
+  if(canvas.getContext){
+    let ctx = canvas.getContext('2d')
+    ctx.beginPath()
+    ctx.moveTo(0, 0)
+    ctx.lineTo(150, 150)
+    ctx.lineTo(150, 0)
+    ctx.closePath()
+    // ctx.stroke()
+    ctx.fill()
+
+    // ctx.beginPath();
+    // ctx.arc(75, 75, 50, 0, Math.PI * 2, true); // 绘制
+    // ctx.moveTo(110, 75);
+    // ctx.arc(75, 75, 35, 0, Math.PI, false);   // 口(顺时针)
+    // ctx.moveTo(65, 65);
+    // ctx.arc(60, 65, 5, 0, Math.PI * 2, true);  // 左眼
+    // ctx.moveTo(95, 65);
+    // ctx.arc(90, 65, 5, 0, Math.PI * 2, true);  // 右眼
+    // ctx.stroke();
+  }
+</script>
+</html>
